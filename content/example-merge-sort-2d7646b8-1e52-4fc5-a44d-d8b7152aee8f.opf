@@ -4,5 +4,5 @@
     <dc:title>Example-Merge-sort</dc:title>
   </metadata>
   <manifest><item href="example-merge-sort-cf015f3d-e59f-46c9-96d4-69b0d40fef64-nav.html" id="example-merge-sort-cf015f3d-e59f-46c9-96d4-69b0d40fef64-nav.html" media-type="application/xhtml+xml" properties="nav"/><item href="module1-272ed476-88b4-49bd-bb25-7b2f99b901a1.html" id="module1-272ed476-88b4-49bd-bb25-7b2f99b901a1.html" media-type="application/xhtml+xml" properties="mathml scripted"/><item href="introduction-9f71627b-b9e3-44ab-9fc7-99e75846d44e.html" id="introduction-9f71627b-b9e3-44ab-9fc7-99e75846d44e.html" media-type="application/xhtml+xml" properties="mathml scripted"/></manifest>
-  <spine><itemref xmlns="http://www.w3.org/1999/xhtml" idref="introduction-9f71627b-b9e3-44ab-9fc7-99e75846d44e.html"></itemref><itemref xmlns="http://www.w3.org/1999/xhtml" idref="module1-272ed476-88b4-49bd-bb25-7b2f99b901a1.html"></itemref></spine>
+  <spine><itemref xmlns="http://www.w3.org/1999/xhtml" idref="module1-272ed476-88b4-49bd-bb25-7b2f99b901a1.html"></itemref></spine>
 </package>
