@@ -1,4 +1,397 @@
 <?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
   <head></head>
-  <body></body>
+  <body><meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8" style="" />
+	<title style=""></title>
+	<meta name="GENERATOR" content="LibreOffice 4.0.2.2 (Linux)" style="" />
+	<style type="text/css" style="">
+	<!--
+		@page { margin: 2cm }
+		P.frame-contents-western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-IN }
+		P.frame-contents-cjk { font-family: "DejaVu Sans"; font-size: 12pt; so-language: zh-CN }
+		P.frame-contents-ctl { font-family: "Lohit Hindi"; font-size: 12pt; so-language: hi-IN }
+		P { margin-bottom: 0.21cm; direction: ltr; color: #000000; line-height: 100%; widows: 0; orphans: 0 }
+		P.western { font-family: "Liberation Serif", serif; font-size: 12pt; so-language: en-IN }
+		P.cjk { font-family: "DejaVu Sans"; font-size: 12pt; so-language: zh-CN }
+		P.ctl { font-family: "Lohit Hindi"; font-size: 12pt; so-language: hi-IN }
+		A:link { so-language: zxx }
+	-->
+	</style>
+
+
+<p lang="en-IN" align="CENTER"><font size="4"><u><b>The
+possible thought process behind Least Recently Used page replacement
+algorithm and Merge Sort algorithm</b></u></font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western" align="CENTER">
+<font color="#ff0000"><font face="Times New Roman, serif"><font size="4"><b>What
+was the possible thought process behind the LRU page replacement
+algorithm?</b></font></font></font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif">Page
+replacement algorithms were a hot topic of research and debate in the
+1960s and 1970s. That mostly ended with the development of
+sophisticated <a href="http://en.wikipedia.org/wiki/Page_replacement_algorithm#Least_recently_used" title="">LRU</a>
+(Least Recently Used) approximations and working set algorithms. </font>
+</p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif"><u><b>Objectives
+</b></u></font><font color="#333333"><font face="Times New Roman, serif"><u><b>behind
+the</b></u></font></font><font face="Times New Roman, serif"><u><b>
+Origination of new Page Replacment Algorithms</b></u></font><font face="Times New Roman, serif"><u>:</u></font></p>
+<p lang="en-IN">
+<font face="Lohit Hindi, serif"><font size="7"><font face="Times New Roman, serif"><font size="3">1
+Achieve lowest page-fault rate possible.</font></font></font></font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif">2.
+Reducing the costs (primary storage and processor time) of the
+implementation of algorithm.</font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#333333"><u><b>The
+possibilities that we think that may have been behind the origination
+of Least Recently Used Page Replacment  Algorithm are: </b></u></font></font>
+</p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN">
+<font face="Lohit Hindi, serif"><font size="6"><font face="Times New Roman, serif"><font size="3">By
+the principle of locality,</font></font></font></font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif">Assuming
+that the Pages that have been heavily used in the last few
+instructions will probably be heavily used again in the next few. </font>
+</p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif">Conversely,
+pages that have not been used for ages will probably remain unused
+for a long time. </font>
+</p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif">This
+idea suggests a realizable algorithm: when a page fault occurs, throw
+out the page that has been unused for the longest time i.e.Discards
+the least recently used items first. This strategy was therefore
+named LRU (Least Recently Used) paging.</font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif">Basically,LRU
+algorithm uses information about the pages accessed in recent past to
+predict the near future.</font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif">This
+is not as simple as the earlier  FIFO algorithm but not as
+complicated to implement as the Optimal page replacement algorithm.</font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif"><u><b>Different
+implentation techniques to achieve the above proposed algorithm</b></u></font></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><font face="Times New Roman, serif">This
+algorithm will require keeping track of what was used when, which is
+expensive if one wants to make sure the algorithm always discards </font><font face="Times New Roman, serif"><i>the</i></font><font face="Times New Roman, serif">
+least recently used item. General implementations of this technique
+require keeping "age bits" for cache-lines and track the
+"Least Recently Used" cache-line based on age-bits. In such
+an implementation, every time a cache-line is used, the age of all
+other cache-lines changes. </font>
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<font face="Lohit Hindi, serif"><font size="7"><font face="Times New Roman, serif"><font size="3"><u>Counter
+implementation:</u></font></font></font></font></p>
+<p lang="en-IN">
+<font face="Lohit Hindi, serif"><font size="6"><font face="Times New Roman, serif"><font size="3">Every
+page entry has a counter; every time a page is referenced through
+this entry, copy the clock </font></font></font></font>
+</p>
+<p lang="en-IN">
+<font face="Lohit Hindi, serif"><font size="6"><font face="Times New Roman, serif"><font size="3">into
+the counter.When a page needs to be changed, look at the counters to
+determine which are to </font></font></font></font>
+</p>
+<p lang="en-IN">
+<font face="Lohit Hindi, serif"><font size="6"><font face="Times New Roman, serif"><font size="3">change.</font></font></font></font></p>
+<p lang="en-IN">
+<font face="Lohit Hindi, serif"><font size="7"><font face="Times New Roman, serif"><font size="3"><u>Stack
+implementation</u></font></font><font face="Times New Roman, serif"><font size="3">
+– keep a stack of page numbers in a double link form:</font></font></font></font></p><p lang="en-IN"><br /></p><p lang="en-IN"></p><figure class="figure" title=""><div class="title"></div><img draggable="false" src="../resources/b00608899759f15cb1ec439bbfc684cad711ef86.png" alt="lru" class="aloha-image-uploading" /><figcaption></figcaption></figure><p lang="en-IN"><br /></p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN" class="western" style=""><br /></p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" class="western"><br />
+</p>
+<p lang="en-IN" align="CENTER">
+<br />
+</p>
+<p lang="en-IN" align="CENTER">
+<br />
+</p>
+<p lang="en-IN" align="CENTER">
+<br />
+</p>
+<p lang="en-IN" align="CENTER">
+<font face="Times New Roman, serif"><font color="#ff0000"><font size="4"><b>What
+was the possible thought process behind Merge sort ?</b></font></font></font></p>
+<p lang="en-IN" align="CENTER">
+<br />
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">Merge sort
+is a divide and conquer algorithm. It is a stable comparison based
+sorting technique.</font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">Time
+Complexity:</font></font></p>
+<p lang="en-IN">
+<font color="#000000">                            <font face="Times New Roman, serif">Best
+case:O(nlogn) </font></font>
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">		    Worst
+case:O(nlogn)</font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">Space
+Complexity: O(n)</font></font></p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000"><b>The
+Timeline of Algorithms.:</b></font></font></p>
+<p lang="en-IN" class="western">
+<br /><br />
+</p>
+<p lang="en-IN" class="western">
+<font color="#000000"><font face="Times New Roman, serif">Before 1940</font></font></p>
+<ul><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1614
+	- <a href="http://en.wikipedia.org/wiki/John_Napier" title="">John
+	Napier</a> develops method for performing calculations
+	using <a href="http://en.wikipedia.org/wiki/Logarithm" title="">logarithms</a></font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1671
+	- <a href="http://en.wikipedia.org/wiki/Newton%27s_method" title="">Newton–Raphson
+	method</a> developed by <a href="http://en.wikipedia.org/wiki/Isaac_Newton" title="">Isaac
+	Newton</a></font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1690
+	- <a href="http://en.wikipedia.org/wiki/Newton%27s_method" title="">Newton–Raphson
+	method</a> independently developed by <a href="http://en.wikipedia.org/wiki/Joseph_Raphson" title="">Joseph
+	Raphson</a></font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1706
+	- <a href="http://en.wikipedia.org/wiki/John_Machin" title="">John
+	Machin</a> develops a quickly converging inverse-tangent series
+	for π and computes π to 100 decimal places,</font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1789
+	- <a href="http://en.wikipedia.org/wiki/Jurij_Vega" title="">Jurij
+	Vega</a> improves Machin's formula and computes π to 140
+	decimal places,</font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1805
+	- <a href="http://en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm#History" title="">FFT-like
+	algorithm</a> known by <a href="http://en.wikipedia.org/wiki/Carl_Friedrich_Gauss" title="">Carl
+	Friedrich Gauss</a></font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1903 -
+	A <a href="http://en.wikipedia.org/wiki/Fast_Fourier_Transform" title="">Fast
+	Fourier Transform</a> algorithm presented by <a href="http://en.wikipedia.org/wiki/Carle_David_Tolm%C3%A9_Runge" title="">Carle
+	David Tolmé Runge</a></font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1926
+	- <a href="http://en.wikipedia.org/wiki/Bor%C5%AFvka%27s_algorithm" title="">Borůvka's
+	algorithm</a></font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1934
+	- <a href="http://en.wikipedia.org/wiki/Delaunay_triangulation" title="">Delaunay
+	triangulation</a> developed by <a href="http://en.wikipedia.org/wiki/Boris_Delaunay" title="">Boris
+	Delaunay</a></font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1936
+	- <a href="http://en.wikipedia.org/wiki/Turing_machine" title="">Turing
+	machine</a>, an <a href="http://en.wikipedia.org/wiki/Abstract_machine" title="">abstract
+	machine</a> developed by <a href="http://en.wikipedia.org/wiki/Alan_Turing" title="">Alan
+	Turing</a>, with <a href="http://en.wikipedia.org/wiki/Turing_machine#Models_equivalent_to_the_Turing_machine_model" title="">others</a> developed
+	the modern notion of </font></font><font color="#000000"><font face="Times New Roman, serif"><i>algorithm</i></font></font><font color="#000000"><font face="Times New Roman, serif">.</font></font></p></li></ul>
+<p lang="en-IN" class="western">
+<br /><br />
+</p>
+<p lang="en-IN" class="western">
+<font color="#000000"><font face="Times New Roman, serif">1940s</font></font></p>
+<ul><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1942 -
+	A <a href="http://en.wikipedia.org/wiki/Fast_Fourier_Transform" title="">Fast
+	Fourier Transform</a> algorithm developed by <a href="http://en.wikipedia.org/wiki/G.C._Danielson" title="">G.C.
+	Danielson</a> and <a href="http://en.wikipedia.org/wiki/Cornelius_Lanczos" title="">Cornelius
+	Lanczos</a></font></font></p></li><li><p lang="en-IN" class="western">
+	<font color="#000000"><font face="Times New Roman, serif">1945
+	- <a href="http://en.wikipedia.org/wiki/Merge_sort" title="">Merge
+	sort</a> developed by <a href="http://en.wikipedia.org/wiki/John_von_Neumann" title="">John
+	von Neumann</a></font></font></p></li></ul>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">Individual
+elements are sorted. And an array/list of single element is always
+sorted in itself. </font></font>
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">Commencing
+from this notion, the idea may have been developed for reducing the
+array/list size to 1 and move forward.</font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">So John may
+have thought that individual elements are always sorted and the list
+could be decreased to its smallest possible unit, i.e., 1 and then
+sort it with the adjacent list.</font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">Then must
+have been the question to divide the list and since DC was already
+put into use then in FFT and <a href="http://en.wikipedia.org/wiki/Delaunay_triangulation" title="">Delaunay
+triangulation</a>, so it was used to divide the list.</font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000"><span>Early
+examples of DC algorithms are primarily decrease and conquer – the
+original problem is successively broken down into</span></font><font color="#000000"><span> </span></font><font color="#000000"><i><span>single</span></i></font><font color="#000000"><span> </span></font><font color="#000000"><span>subproblems,
+and indeed can be solved iteratively.</span></font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">DC was
+implemented to decrease/divide the array into the smallest element. </font></font>
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">And using
+DC reduces time complexity so it was possibly, because of the same
+reason, used for this technique as well.</font></font></p><span dir="LTR">
+</span><br />
+<p></p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">The idea
+behind linear time merging.</font></font></p>
+<p>
+<font face="Times New Roman, serif"><font color="#000000">Think of
+two piles of cards, Each pile is sorted and placed face-up on a table
+with the smallest cards on top. We will merge these into a single
+sorted pile, face-down on the table.</font></font></p>
+<p>
+<font face="Times New Roman, serif"><font color="#000000">A basic
+step:</font></font></p>
+<ul><li><p>
+	<font face="Times New Roman, serif"><font color="#000000">Choose the
+	smaller of the two top cards.</font></font></p></li><li><p>
+	<font face="Times New Roman, serif"><font color="#000000">Remove it
+	from its pile, thereby exposing a new top card.</font></font></p></li><li><p>
+	<font face="Times New Roman, serif"><font color="#000000">Place the
+	chosen card face-down onto the output pile.</font></font></p></li><li><p>
+	<font face="Times New Roman, serif"><font color="#000000">Repeatedly
+	perform basic steps until one input pile is empty.</font></font></p></li><li><p>
+	<font face="Times New Roman, serif"><font color="#000000">Once one
+	input pile empties, just take the remaining input pile and place it
+	face-down onto the output pile.</font></font></p></li></ul>
+<p>
+<font face="Times New Roman, serif"><font color="#000000">Each basic
+step should take constant time, since we check just the two top
+cards. There are at most</font><font color="#000000"> </font><em><font color="#000000">n</font></em><font color="#000000"> </font><font color="#000000">basic
+steps, since each basic step removes one card from the input piles,
+and we started with</font><font color="#000000"> </font><em><font color="#000000">n</font></em><font color="#000000"> </font><font color="#000000">cards
+in the input piles. Therefore, this procedure should take Θ(</font><em><font color="#000000">n</font></em><font color="#000000">)
+time.</font></font></p>
+<p>
+<font face="Times New Roman, serif"><font color="#000000">Now the
+question is do we actually need to check whether a pile is empty
+before each basic step?</font><font color="#000000"> </font><font color="#000000"><br />The
+answer is no, we do not. Put on the bottom of each input pile a
+special</font><font color="#000000"> </font><font color="#000000">sentinel</font><font color="#000000"> </font><font color="#000000">card.
+It contains a special value that we use to simplify the code. We use
+∞, since that's guaranteed to lose to any other value. The only way
+that ∞</font><font color="#000000"> </font><font color="#000000">cannot</font><font color="#000000"> </font><font color="#000000">lose
+is when both piles have ∞ exposed as their top cards. But when that
+happens, all the nonsentinel cards have already been placed into the
+output pile. We know in advance that there are exactly</font><font color="#000000"> </font><em><font color="#000000">r</font></em><font color="#000000"> </font><font color="#000000">−</font><font color="#000000"> </font><em><font color="#000000">p</font></em><font color="#000000"> </font><font color="#000000">+
+1 nonsentinel cards so stop once we have performed</font><font color="#000000"> </font><em><font color="#000000">r</font></em><font color="#000000"> </font><font color="#000000">−</font><font color="#000000"> </font><em><font color="#000000">p</font></em><font color="#000000"> </font><font color="#000000">+
+1 basic steps. Never a need to check for sentinels, since they will
+always lose. Rather than even counting basic steps, just fill up the
+output array from index</font><font color="#000000"> </font><em><font color="#000000">p</font></em><font color="#000000"> </font><font color="#000000">up
+through and including index</font><font color="#000000"> </font><em><font color="#000000">r</font></em><font color="#000000"> </font><font color="#000000">.</font></font></p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">Array is
+recursively divided into two halves until the size of subarray
+becomes one. DC  works best for this method.</font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">Then
+compare with the adjacent list and keep merging them till the entire
+list is merged.</font></font></p>
+<p lang="en-IN" style="">
+<font face="Times New Roman, serif"><font color="#000000">Sorting
+ends there.</font></font></p><p lang="en-IN" style=""><font face="Times New Roman, serif"><font color="#000000"><br /></font></font></p><p lang="en-IN" style=""><font face="Times New Roman, serif"><font color="#000000"><br /></font></font></p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">References:</font></font></p>
+<ul><ol><li><p lang="en-IN">
+		<font face="Times New Roman, serif"><a href="http://en.wikipedia.org/wiki/Timeline_of_algorithms" title=""><font color="#000000">http://en.wikipedia.org/wiki/Timeline_of_algorithms</font></a></font></p></li><li><p lang="en-IN">
+		<font face="Times New Roman, serif"><a href="http://en.wikipedia.org/wiki/Delaunay_triangulation" title=""><font color="#000000">http://en.wikipedia.org/wiki/Delaunay_triangulation</font></a></font></p></li><li><p lang="en-IN">
+		<font face="Times New Roman, serif"><a href="http://en.wikipedia.org/wiki/Merge_sort" title=""><font color="#000000">http://en.wikipedia.org/wiki/Merge_sort</font></a></font></p></li><li><p lang="en-IN">
+		<font face="Times New Roman, serif"><a href="http://en.wikipedia.org/wiki/John_von_Neumann" title=""><font color="#000000">http://en.wikipedia.org/wiki/John_von_Neumann</font></a></font></p></li><li><p lang="en-IN">
+		<font face="Times New Roman, serif"><font color="#000000">1945. </font><font color="#000000"><i>First
+		Draft of a Report on the EDVAC</i></font><font color="#000000"> <a href="http://systemcomputing.org/turing%20award/Maurice_1967/TheFirstDraft.pdf" title="">TheFirstDraft.pdf</a></font></font></p></li><li><p lang="en-IN">
+		<font face="Times New Roman, serif"><a href="http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/mergeSort.htm" title=""><font color="#000000">http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/mergeSort.htm</font></a></font></p></li></ol></ul>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">							Submitted
+By:</font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">							Vaishali
+Dhanoa</font></font></p>
+<p lang="en-IN">
+<font face="Times New Roman, serif"><font color="#000000">			        
+                                       Sanya Kapoor</font></font></p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p>
+<p lang="en-IN">
+<br />
+</p></body>
 </html>
